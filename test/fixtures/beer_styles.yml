@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  aka: MyString
+  country_of_origin: MyString
+  sample_brands: MyString
+
+two:
+  name: MyString
+  aka: MyString
+  country_of_origin: MyString
+  sample_brands: MyString

@@ -1,0 +1,29 @@
+<%= form_for(@pairing) do |f| %>
+  <% if @pairing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pairing.errors.count, "error") %> prohibited this pairing from being saved:</h2>
+
+      <ul>
+      <% @pairing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :beer_style_id %><br />
+    <%= f.number_field :beer_style_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pairing_descriptor_id %><br />
+    <%= f.number_field :pairing_descriptor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :reasoning %><br />
+    <%= f.text_area :reasoning %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

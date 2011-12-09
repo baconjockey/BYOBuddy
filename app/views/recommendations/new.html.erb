@@ -1,0 +1,14 @@
+<h1>Recommendations#new</h1>
+
+
+<%= form_tag '/recommendations/create' do %>
+  <% Category.all.each do |category| %>
+	  <h3><%= category.name %></h3>
+	  <ul>
+	   <% category.pairing_descriptors.each do |descriptor| %>
+	     <li><%= check_box_tag 'pairing_descriptors[]', descriptor.id  %> <%= descriptor.name %></li>
+	   <% end %>
+	  </ul>
+  <% end %>
+  <%= submit_tag 'Beer Me!' %>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Listing beer_styles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Aka</th>
+    <th>Country of origin</th>
+    <th>Sample brands</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @beer_styles.each do |beer_style| %>
+  <tr>
+    <td><%= beer_style.name %></td>
+    <td><%= beer_style.aka %></td>
+    <td><%= beer_style.country_of_origin %></td>
+    <td><%= beer_style.sample_brands %></td>
+    <td><%= link_to 'Show', beer_style %></td>
+    <td><%= link_to 'Edit', edit_beer_style_path(beer_style) %></td>
+    <td><%= link_to 'Destroy', beer_style, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Beer style', new_beer_style_path %>

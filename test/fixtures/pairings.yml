@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  beer_style_id: 1
+  pairing_descriptor_id: 1
+  reasoning: MyText
+
+two:
+  beer_style_id: 1
+  pairing_descriptor_id: 1
+  reasoning: MyText

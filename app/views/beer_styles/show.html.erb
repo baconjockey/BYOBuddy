@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @beer_style.name %>
+</p>
+
+<p>
+  <b>Aka:</b>
+  <%= @beer_style.aka %>
+</p>
+
+<p>
+  <b>Country of origin:</b>
+  <%= @beer_style.country_of_origin %>
+</p>
+
+<p>
+  <b>Sample brands:</b>
+  <%= @beer_style.sample_brands %>
+</p>
+
+
+<%= link_to 'Edit', edit_beer_style_path(@beer_style) %> |
+<%= link_to 'Back', beer_styles_path %>

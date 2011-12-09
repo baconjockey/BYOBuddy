@@ -1,0 +1,27 @@
+<h1>Listing pairings</h1>
+
+<table>
+  <tr>
+    <th>Beer style</th>
+    <th>Pairing descriptor</th>
+    <th>Reasoning</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pairings.each do |pairing| %>
+  <tr>
+    <td><%= pairing.beer_style_id %></td>
+    <td><%= pairing.pairing_descriptor_id %></td>
+    <td><%= pairing.reasoning %></td>
+    <td><%= link_to 'Show', pairing %></td>
+    <td><%= link_to 'Edit', edit_pairing_path(pairing) %></td>
+    <td><%= link_to 'Destroy', pairing, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pairing', new_pairing_path %>

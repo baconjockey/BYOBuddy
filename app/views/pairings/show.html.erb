@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Beer style:</b>
+  <%= @pairing.beer_style_id %>
+</p>
+
+<p>
+  <b>Pairing descriptor:</b>
+  <%= @pairing.pairing_descriptor_id %>
+</p>
+
+<p>
+  <b>Reasoning:</b>
+  <%= @pairing.reasoning %>
+</p>
+
+
+<%= link_to 'Edit', edit_pairing_path(@pairing) %> |
+<%= link_to 'Back', pairings_path %>
