@@ -5,4 +5,8 @@
 
 <% @beer_styles.each do |style| %>
     <h2><%= style.name %></h2>
+    <ul>
+        <li>Description: <%= style.description %></li>
+        <li>Sample Brands: <%= style.sample_brands %></li>
+    </ul>
 <% end %>
