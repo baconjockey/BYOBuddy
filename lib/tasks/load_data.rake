@@ -16,8 +16,8 @@ namespace :data do
         BeerStyle.create!(:name            => row[0],
                         :aka               => row[1],
                         :country_of_origin => row[2],
-                        :sample_brands     => row[3],
-                        :description       => row[4])
+                        :description       => row[3],
+                        :sample_brands     => row[4])
       rescue Exception => e
         failures << row
       end
@@ -30,32 +30,53 @@ namespace :data do
   end
   
   
-  desc "Load Cuisines"
-  task :load_cuisines => :environment do
-    
-    
-    c = Category.find_by_name(col_1)
-    c.pairing_descriptors.build(name => "Seafood")
+  desc "Load PairingDescriptors"
+  task :load_pairing_descriptors => :environment do
     
     PairingDescriptor.destroy_all
     start_time = Time.now
-    filename = File.join(Rails.root, '/db/seeds/Cuisine.csv')
+    filename = File.join(Rails.root, '/db/seeds/PairingDescriptors.csv')
     failures = []
-
+  
     CSV.foreach(filename, :headers => true) do |row|
       begin
-        # model name
-        PairingDescriptor.create!(:name        => row[0])
+        PairingDescriptor.create!(:name         => row[0],
+                                  :category     => Category.find_by_name(row[1]))
       rescue Exception => e
         failures << row
       end
     end
-
+  
     total_time = Time.now - start_time
     puts "Elapsed time #{total_time} seconds."
     puts "Failed to add #{failures.count} styles"
     puts failures.inspect
   end
+  
+  desc "Load Pairings"
+  task :load_pairings => :environment do
+    
+    Pairing.destroy_all
+    start_time = Time.now
+    filename = File.join(Rails.root, '/db/seeds/Pairings.csv')
+    failures = []
+  
+    CSV.foreach(filename, :headers => true) do |row|
+      begin
+        Pairing.create!(:beer_style             => BeerStyle.find_by_name(row[0]),
+                        :pairing_descriptor     => PairingDescriptor.find_by_name(row[1]),
+                        :reasoning              => row[2])
+      rescue Exception => e
+        failures << row
+      end
+    end
+  
+    total_time = Time.now - start_time
+    puts "Elapsed time #{total_time} seconds."
+    puts "Failed to add #{failures.count} styles"
+    puts failures.inspect
+  end
+  
 end
 
 # to run locally: rake upload_data:load_foo where "foo" = task.  Here, rake upload_data:load_BeerStyles
