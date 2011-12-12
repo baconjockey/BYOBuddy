@@ -5,3 +5,14 @@
  *= require_self
  *= require_tree . 
 */
+
+
+
+body {
+    background-image: url(/images/back_texture.jpg);
+    background-repeat: repeat;
+}
+
+ul li {
+	list-style: none;	
+}

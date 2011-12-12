@@ -1,13 +1,12 @@
-<h1>Recommendations#create</h1>
-
+<h1>What Should I Drink?</h1>
 
 <p>You should choose:</p>
 
 <% @beer_styles.each do |style| %>
     <h2><%= style.name %></h2>
     <ul>
-        <li>Description: <%= style.description %></li>
+        <li><strong>Description:</strong> <%= style.description %></li><br />
         <!-- <li>Reasoning:  style.pairing.reasoning /li> -->
-        <li>Sample Brands: <%= style.sample_brands %></li>
+        <li><strong>Sample Brands:</strong> <%= style.sample_brands %></li>
     </ul>
 <% end %>

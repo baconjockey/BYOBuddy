@@ -5,18 +5,16 @@ class RecommendationsController < ApplicationController
   def create
     pairings = Pairing.scoped
     
-    # create new array from params hash values
-    # for each element in the array, run the pairings search
-    # save the results of each pairings search in a new array
-    # compare arrays with "&" intersection operator
     
-    # @c = params[:pairing_descriptors].flatten.count
-    
-    params[:pairing_descriptors].each do |descriptor_id|
-      pairings = pairings.where(:pairing_descriptor_id => descriptor_id)
-    end
-    
-    @beer_styles = pairings.map { |pairing| pairing.beer_style }.uniq
+    requested_pairing_ids = params[:pairing_descriptors]
+    candidate_pairings  = Pairing.where(:pairing_descriptor_id => requested_pairing_ids).group(:beer_style_id)
+    candidates = candidate_pairings.map(&:beer_style)
+    @beer_styles = candidates.select { |candidate| requested_pairing_ids.all? { |rp| candidate.pairing_descriptors.find_by_id(rp) } }
+      
+    # params[:pairing_descriptors].each do |descriptor_id|  
+      #pairings = pairings.where(:pairing_descriptor_id => descriptor_id)
+    # end
+    # @beer_styles = pairings.map { |pairing| pairing.beer_style }.uniq
     
   end
 
