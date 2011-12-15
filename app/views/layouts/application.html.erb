@@ -5,13 +5,16 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
+  
 <body>
-    <header>
-            <img src="../images/byobuddy_logo.gif" width="50" height="128" alt="BYOBuddy" style="float: left"/>
-            <h1>BYOBuddy</h1>
-    </header>
-<%= yield %>
+    <header></header>
+        <div id="byobuddy">
+            <img src="../images/byobuddy_full_logo.png" alt="BYOBuddy" />
+        </div>
+        <div class="clear"></div>
+        <%= yield %>
+        <div class="clear"></div>
+        <div id="footer"></div>
 
 </body>
 </html>

@@ -1,15 +1,32 @@
-<!-- If I want to turn each category into a column at the top of the page, is there a way to do so without searching by category name 
-and giving each a div?-->
-
-
+  
 <%= form_tag '/recommendations/create' do %>
-  <% Category.all.each do |category| %>
-	  <h3><%= category.name %></h3>
-	  <ul>
-	   <% category.pairing_descriptors.each do |descriptor| %>
-	     <li><%= check_box_tag 'pairing_descriptors[]', descriptor.id  %> <%= descriptor.name %></li>
-	   <% end %>
-	  </ul>
-  <% end %>
-  <%= submit_tag 'Beer Me!' %>
+    <div class="beige_box">
+        <div id="whaddaya_got">
+            <img src="images/whaddaya_got.png">
+        </div>
+        
+        <div id="main_ingredient">
+          <h3>Main Ingredient</h3>
+            <ul>
+              <% Category.find_by_name("Main Ingredient").pairing_descriptors.each do |descriptor| %>
+          	    <li><%= check_box_tag 'pairing_descriptors[]', descriptor.id  %> <%= descriptor.name %></li>
+          	  <% end %>
+          	</ul>
+        </div>
+         
+        <div id="cuisine">
+          <h3>Cuisine</h3>
+          	<ul>
+              <% Category.find_by_name("Cuisine").pairing_descriptors.each do |descriptor| %>
+          	    <li><%= check_box_tag 'pairing_descriptors[]', descriptor.id  %> <%= descriptor.name %></li>
+          	  <% end %>
+          	</ul>
+        </div>
+        
+        <div id="button">
+            <%= image_submit_tag ("/images/beer_me.png") %>
+        </div>
+    </div>
+    
 <% end %>
+

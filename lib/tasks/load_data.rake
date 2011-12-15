@@ -2,7 +2,6 @@ require 'csv'
 
 namespace :data do
 
-  # controller name
   desc "Load BeerStyles"
   task :load_beer_styles => :environment do
     BeerStyle.destroy_all

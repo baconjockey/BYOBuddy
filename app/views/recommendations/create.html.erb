@@ -1,12 +1,20 @@
-<h1>What Should I Drink?</h1>
+<div class="beige_box">
+    <h1>What Should I Drink?</h1>
+    
+    <% @reasoning.each do |reason| %>
+        <%= reason.reasoning %><br />
+    <% end  %>
+    
+    <p>You should choose:</p>
 
-<p>You should choose:</p>
+    <% @beer_styles.each do |style| %>
+        <h2><%= style.name %></h2>
+        <ul>
+            <!-- li><strong>Description:</strong> < image_tag(/images/belgian_pale_ale.png) %></li><br /> -->
+            <li><strong>Description:</strong> <%= style.description %></li><br />
+            <li><strong>Sample Brands:</strong> <%= style.sample_brands %></li>
+        </ul>
+    <% end %>
+</div>
 
-<% @beer_styles.each do |style| %>
-    <h2><%= style.name %></h2>
-    <ul>
-        <li><strong>Description:</strong> <%= style.description %></li><br />
-        <!-- <li>Reasoning:  style.pairing.reasoning /li> -->
-        <li><strong>Sample Brands:</strong> <%= style.sample_brands %></li>
-    </ul>
-<% end %>
+ <!-- image_tag(beer.style.image) -->

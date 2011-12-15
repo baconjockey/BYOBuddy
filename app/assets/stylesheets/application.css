@@ -6,13 +6,93 @@
  *= require_tree . 
 */
 
+/* header */
+header {
+	background-image: url(/images/header.gif);
+	background-position: top;
+	background-repeat: repeat;
+	height: 103px;
+}
 
+#byobuddy {
+	float: left;
+	position: relative;
+	bottom: 90px;
+	margin-left: 30px;
+}
 
+/* body */
 body {
     background-image: url(/images/back_texture.jpg);
     background-repeat: repeat;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	height: 100%;
 }
 
 ul li {
-	list-style: none;	
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;	
 }
+
+.beige_box{
+	float: left;
+	background: #fbf8db;
+	margin-top: -110px;
+	margin-left: 180px;
+	margin-bottom: 50px;
+	width: 60%;
+	padding: 0px 40px 0px 40px;
+}
+
+#whaddaya_got {
+	margin-left: -79px;
+	margin-top: 0px;
+}
+
+/* parameters checkboxes */
+#main_ingredient {
+	float: left;
+	position: relative;
+	padding-right: 30px;
+	bottom: 30px;
+}
+
+#cuisine {
+	float: left;
+	position: relative;
+	margin-left: 0px;
+	bottom: 30px;
+}
+
+#button {
+	float: left;
+  	margin-top: 120px;
+	margin-left: 60px;
+}
+
+#footer {
+	position: relative;
+	background-image: url(/images/footer.png);
+	background-repeat: repeat;
+	height: 40px;
+	width: 100%;
+}
+
+.clear { 
+	clear: both; 
+}
+
+/*.beer_results{
+	background: #fbf8db;
+	background: #fbbbbb;
+	float: left;
+	position: relative;
+	top: 150px;
+	left: 150px;
+	height: 150px;
+	width: 70%;
+	padding: 0px 40px 0px 40px;
+	} */
