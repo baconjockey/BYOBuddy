@@ -31,7 +31,15 @@ body {
 	height: 100%;
 }
 
-ul li {
+ul li.main {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: large;	
+}
+
+ul li.results {
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;	
@@ -47,7 +55,7 @@ ul li {
 	padding: 0px 40px 0px 40px;
 }
 
-#whaddaya_got {
+#orange_label {
 	margin-left: -79px;
 	margin-top: 0px;
 }

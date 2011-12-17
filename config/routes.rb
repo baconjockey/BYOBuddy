@@ -2,7 +2,7 @@ Byobuddy::Application.routes.draw do
   root to: "recommendations#new"
   
   get "recommendations/new"
-  post "recommendations/create"
+  get "recommendations/create"
 
   resources :pairings
   resources :pairing_descriptors

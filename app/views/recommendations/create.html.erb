@@ -1,20 +1,20 @@
 <div class="beige_box">
-    <h1>What Should I Drink?</h1>
-    
-    <% @reasoning.each do |reason| %>
-        <%= reason.reasoning %><br />
-    <% end  %>
-    
-    <p>You should choose:</p>
-
+    <div id="orange_label">
+        <img src="../images/drink_this.png">
+    </div>
     <% @beer_styles.each do |style| %>
         <h2><%= style.name %></h2>
-        <ul>
-            <!-- li><strong>Description:</strong> < image_tag(/images/belgian_pale_ale.png) %></li><br /> -->
+        <ul class="results">
             <li><strong>Description:</strong> <%= style.description %></li><br />
+            <li><strong>Why does this pairing work?: </strong></li>
+            <li>
+                <% @reasoning.each do |reason| %>
+                    <% if reason.beer_style_id.eql?(style.id) %>
+                        <%= reason.reasoning %><br />
+                    <% end %>
+                <% end %>
+            </li><br/>
             <li><strong>Sample Brands:</strong> <%= style.sample_brands %></li>
         </ul>
     <% end %>
 </div>
-
- <!-- image_tag(beer.style.image) -->
