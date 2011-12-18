@@ -31,7 +31,7 @@ body {
 	height: 100%;
 }
 
-ul li.main {
+ul.main li{
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;
@@ -39,7 +39,7 @@ ul li.main {
 	font-size: large;	
 }
 
-ul li.results {
+ul.results li{
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;	

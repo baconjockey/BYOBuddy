@@ -3,9 +3,11 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-      requested_pairing_ids = params[:pairing_descriptors]
+      render :new if params[:pairing_descriptors] == nil
       
+      requested_pairing_ids = params[:pairing_descriptors]
       @pairings = Pairing.for_descriptor_ids(requested_pairing_ids)
+
       
        #  
        # if params[:pairing_descriptors]!=nil
@@ -24,33 +26,7 @@ class RecommendationsController < ApplicationController
        # else
        #   render :new
        # end
-    
-    # @display_reasoning = []
-    #    
-    #    candidate_pairing_reasoning.each do |candidate|
-    #      if candidate.beer_style_id = @beer_style.each.beer_style_id
-    #        @display_reasoning << candidate.reasoning
-    #      else
-    #        @display_reasoning
-    #      end
-    #    end
-    #    
-    # if cpr.bs_id = beer_style then display_reasoning << cpr 
-    # display_reasoning.each display_reasoning.reasoning
-      
-    
-    # ok, beer_styles + requested_pairing_ids = candidate_pairing_reasoning
-      # display_reasoning = empty array
-      # candidate_pairing_reasoning.each do 
-      # if cpr.bs_id = beer_style then display_reasoning << cpr 
-      # display_reasoning.each display_reasoning.reasoning
-    # raise @candidate_pairings.inspect
 
- 
-    # params[:pairing_descriptors].each do |descriptor_id|  
-      #pairings = pairings.where(:pairing_descriptor_id => descriptor_id)
-    # end
-    # @beer_styles = pairings.map { |pairing| pairing.beer_style }.uniq
   end
   
 end

@@ -7,7 +7,7 @@
         
         <div id="main_ingredient">
           <h3>Main Ingredient</h3>
-            <ul>
+            <ul class="main">
               <% Category.find_by_name("Main Ingredient").pairing_descriptors.each do |descriptor| %>
           	    <li class="main"><%= check_box_tag 'pairing_descriptors[]', descriptor.id  %> <%= descriptor.name %></li>
           	  <% end %>

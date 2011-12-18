@@ -4,6 +4,9 @@ class Pairing < ActiveRecord::Base
   
   
   def self.for_descriptor_ids(ids)
+    # find pairings where p_d_id matches incoming ids (from params hash)
+    # "includes" forces eager loading, which "reduces the amount of queries made to the database [and] increases performance"
+    # see http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations
     all_possible_pairings = Pairing.where(:pairing_descriptor_id => ids).includes(:beer_style)
   
     beer_styles_by_pairing_descriptor = all_possible_pairings
@@ -21,9 +24,7 @@ class Pairing < ActiveRecord::Base
         #  
         # if params[:pairing_descriptors]!=nil
         #   requested_pairing_ids = params[:pairing_descriptors]
-        #   # ActiveRecord::Relation object containing all candidate beer pairings, including reasoning
         #   candidate_pairing_reasoning = Pairing.where(:pairing_descriptor_id => requested_pairing_ids)
-        #   # get unique candidate pairings based on pairing_ids
         #   candidate_pairings  = candidate_pairing_reasoning.group(:beer_style_id)
         #   # candidates pairings but in their equivalent beer style
         #   candidates = candidate_pairings.map(&:beer_style) 
