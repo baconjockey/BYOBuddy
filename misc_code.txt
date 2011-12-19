@@ -19,3 +19,170 @@
         </ul>
     <% end %>
 </div> -->
+
+<div class="also_like_box">
+    <ul class="results">
+        <% @pairings.map(&:beer_style).uniq[1...@pairings.length].each_with_index do |i| %>
+        <div id="<%= "pairing_image_#{i}" %>" class="also_like_image" clas>
+            <%= image_tag("../images/belgian_beers/#{@pairings[i].image}.jpg", :size => "100x100")%>
+        </div>
+        
+        <div id="<%= "pairing#{i}" %>" class="hidden">
+            <ul class="results">
+                <li><strong>Description:</strong> <%= beer_style.description %></li><br />
+                <li><strong>Why does this pairing work? </strong></li>
+                <li>
+                    <% @pairings.each do |reason| %>
+                        <% if reason.beer_style_id.eql?(beer_style.id) %>
+                            <%= reason.reasoning %><br />
+                        <% end %>
+                    <% end %>
+                </li><br/>
+                <li><strong>Sample Brands:</strong> <%= beer_style.sample_brands %></li>
+            </ul>
+        </div>
+<% end %>
+
+<div class="clear"></div>
+
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+/* header */
+header {
+	background-image: url(/images/header.gif);
+	background-position: top;
+	background-repeat: repeat;
+	height: 103px;
+}
+
+#byobuddy {
+	float: left;
+	position: relative;
+	bottom: 90px;
+	margin-left: 30px;
+}
+
+/* body */
+body {
+    background-image: url(/images/back_texture.jpg);
+    background-repeat: repeat;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	height: 100%;
+}
+
+ul.main li{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: large;	
+}
+
+ul.results li{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;	
+}
+
+.beige_box{
+	float: left;
+	background: #fbf8db;
+	margin-top: -110px;
+	margin-left: 180px;
+	margin-bottom: 50px;
+	width: 60%;
+	padding: 0px 40px 40px 40px;
+}
+
+.drink_this_beer_box {
+	background: #ffffff;
+	padding: 30px;
+}
+
+#drink_this_beer_image {
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+
+#drink_this_beer_text {
+	float: left;
+}
+
+.also_like_box {
+	background: #ffffff;
+	padding: 10px 0px 10px 0px;
+}
+
+.also_like_image {
+	float: left;
+	margin: 5px;
+}
+
+#more_info {
+	display: hidden;
+}
+
+#hidden_info {
+	display: none;
+}
+
+#orange_label {
+	margin-left: -79px;
+	margin-top: 0px;
+}
+
+/* parameters checkboxes */
+#main_ingredient {
+	float: left;
+	position: relative;
+	padding-right: 30px;
+	bottom: 30px;
+}
+
+#cuisine {
+	float: left;
+	position: relative;
+	margin-left: 0px;
+	bottom: 30px;
+}
+
+#button {
+	float: left;
+  	margin-top: 120px;
+	margin-left: 60px;
+}
+
+#footer {
+	position: relative;
+	background-image: url(/images/footer.png);
+	background-repeat: repeat;
+	height: 40px;
+	width: 100%;
+}
+
+.clear { 
+	clear: both; 
+}
+.hidden {
+	display: none;
+}
+
+/*.beer_results{
+	background: #fbf8db;
+	background: #fbbbbb;
+	float: left;
+	position: relative;
+	top: 150px;
+	left: 150px;
+	height: 150px;
+	width: 70%;
+	padding: 0px 40px 0px 40px;
+	} */

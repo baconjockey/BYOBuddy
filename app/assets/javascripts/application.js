@@ -7,3 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $("#also_like_image").click(function(event) {
+    event.preventDefault();
+    $("#more_info").load("#hidden_info");
+  });
+  
+});

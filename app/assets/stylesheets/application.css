@@ -52,7 +52,39 @@ ul.results li{
 	margin-left: 180px;
 	margin-bottom: 50px;
 	width: 60%;
-	padding: 0px 40px 0px 40px;
+	padding: 0px 40px 40px 40px;
+}
+
+.drink_this_beer_box {
+	background: #ffffff;
+	padding: 30px;
+}
+
+#drink_this_beer_image {
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+
+#drink_this_beer_text {
+	float: left;
+}
+
+.also_like_box {
+	background: #ffffff;
+	padding: 10px 0px 10px 0px;
+}
+
+#also_like_image {
+	float: left;
+	margin: 5px;
+}
+
+#more_info {
+	
+}
+
+#hidden_info {
+	display: none;
 }
 
 #orange_label {

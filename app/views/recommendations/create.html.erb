@@ -1,24 +1,59 @@
 <div class="beige_box">
-    <h1>What Should I Drink?</h1>
-    
-    <p>You should choose:</p>
+    <div id="orange_label">
+           <img src="../images/drink_this.png">
+     </div>
 
-    <% @pairings.map(&:beer_style).uniq.each do |beer_style| %>
-        <h2><%= beer_style.name %></h2>
-        <%= image_tag("../images/belgian_beers/#{beer_style.image}.jpg") %>
-        <ul class="results">
-            <!-- li><strong>Description:</strong> < image_tag(/images/belgian_pale_ale.png) %></li><br /> -->
-            <li><strong>Description:</strong> <%= beer_style.description %></li><br />
-            <li><strong>Why does this pairing work? </strong></li>
-            <li>
-                <% @pairings.each do |reason| %>
-                    <% if reason.beer_style_id.eql?(beer_style.id) %>
-                        <%= reason.reasoning %><br />
-                    <% end %>
-                <% end %>
-            </li><br/>
-            <li><strong>Sample Brands:</strong> <%= beer_style.sample_brands %></li>
-        </ul>
+    <% if @pairings.empty? %>
+        <p><%= link_to "No beers?  You should re-think your dining decision", root_path %></p>
+    <% else %>
+        <% first_beer = @pairings.map(&:beer_style).uniq.first %>
+            <div class="drink_this_beer_box">
+                <div id="drink_this_beer_image">
+                    <%= image_tag("../images/belgian_beers/#{first_beer.image}.jpg") %>
+                </div>
+
+                
+                <ul class="results">
+                    <li><h2>Sample Brands</h2><br /> <%= first_beer.sample_brands %></li><br />
+                    <li><h2>Why does this pairing work? </h2></li>
+                    <li><%= @pairings.first.reasoning %></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <h2>You might also like...</h2>
+            
+            <div class="also_like_box">
+                <ul class="results">
+                    <% @pairings.map(&:beer_style).uniq[1...@pairings.length].each do |beer_style| %>
+                    <div id="also_like_image">
+                        <%= image_tag("../images/belgian_beers/#{beer_style.image}.jpg", :size => "100x100")%>
+                    </div>
+                    
+                    <div id="hidden_info">
+                        <ul class="results">
+                            <li><strong>Description:</strong> <%= beer_style.description %></li><br />
+                            <li><strong>Why does this pairing work? </strong></li>
+                            <li>
+                                <% @pairings.each do |reason| %>
+                                    <% if reason.beer_style_id.eql?(beer_style.id) %>
+                                        <%= reason.reasoning %><br />
+                                    <% end %>
+                                <% end %>
+                            </li><br/>
+                            <li><strong>Sample Brands:</strong> <%= beer_style.sample_brands %></li>
+                        </ul>
+                    </div>
+            <% end %>
+            
+            <div class="clear"></div>
+ 
+            <div class="more_info">
+                <p>HELLO!</p>
+            </div>
+    </div>
     <% end %>
 </div>
 
