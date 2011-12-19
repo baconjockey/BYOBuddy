@@ -9,7 +9,7 @@
         <% first_beer = @pairings.map(&:beer_style).uniq.first %>
             <div class="drink_this_beer_box">
                 <div id="drink_this_beer_image">
-                    <%= image_tag("../images/belgian_beers/#{first_beer.image}.jpg") %>
+                    <%= image_tag("belgian_beers/#{first_beer.image}.jpg") %>
                 </div>
       
                 <ul class="results">
@@ -45,7 +45,7 @@
                     <% @pairings.map(&:beer_style).uniq[1...@pairings.length].each do |beer_style| %>
                     <% i += 1 %>
                     <div class="also_like_image" id="image<%= i %>">
-                        <%= image_tag("../images/belgian_beers/#{beer_style.image}.jpg", :size => "100x100")%>
+                        <%= image_tag("belgian_beers/#{beer_style.image}.jpg", :size => "100x100")%>
                     </div>
                     
                     <div class="hidden" id="hidden_info<%= i %>">

@@ -1,4 +1,16 @@
 ---
+belgian_beers/abbey_style.jpg: belgian_beers/abbey_style-adbd2df6c2ca897a4f28078a1adf2298.jpg
+belgian_beers/belgian_pale_ale.jpg: belgian_beers/belgian_pale_ale-b240a94c8b7b8b84990401832bfe62b0.jpg
+belgian_beers/belgian_pilsner.jpg: belgian_beers/belgian_pilsner-adf2523b28767f5888c3bc09106d60ba.jpg
+belgian_beers/belgian_white_beer.jpg: belgian_beers/belgian_white_beer-3d84515e7fb45d2bcf0fb711e320f44c.jpg
+belgian_beers/flemish_brown_ale.jpg: belgian_beers/flemish_brown_ale-9d5e25200df589f46c6a15bb7448b85c.jpg
+belgian_beers/flemish_red_ale.jpg: belgian_beers/flemish_red_ale-9cb70a502bc0389da343b2c891ba54af.jpg
+belgian_beers/fruit_beer.jpg: belgian_beers/fruit_beer-b1ade3f71c56982c01ddd33d0cdf48b4.jpg
+belgian_beers/golden_ale.jpg: belgian_beers/golden_ale-08a2bfe806ae7508ed2b58c2fdb340fe.jpg
+belgian_beers/lambic.jpg: belgian_beers/lambic-84329693d3f83d9afa68dcb1365c85f2.jpg
+belgian_beers/saison.jpg: belgian_beers/saison-ef25a1be0dace2b4dd9271cd9268688e.jpg
+belgian_beers/trappist_dubbel.jpg: belgian_beers/trappist_dubbel-466b871db88820e260b766294a05ce78.jpg
+belgian_beers/trappist_tripel.jpg: belgian_beers/trappist_tripel-406f70c91c862dfbd50855fa3089a701.jpg
 rails.png: rails-e4b51606cd77fda2615e7439907bfc92.png
 application.js: application-ae30e133eabbb10d9464189d3fb71e25.js
 application.css: application-3a9451b4affe7335587f572e9c6fcd76.css
