@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20111210055051) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string  "image"
+    t.string   "image"
   end
 
   create_table "categories", :force => true do |t|

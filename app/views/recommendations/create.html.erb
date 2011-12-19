@@ -11,15 +11,29 @@
                 <div id="drink_this_beer_image">
                     <%= image_tag("../images/belgian_beers/#{first_beer.image}.jpg") %>
                 </div>
-
-                
+      
                 <ul class="results">
                     <li><h2>Sample Brands</h2><br /> <%= first_beer.sample_brands %></li><br />
                     <li><h2>Why does this pairing work? </h2></li>
                     <li><%= @pairings.first.reasoning %></li>
+                    <div class="hidden" id="first_hidden_info">
+                        <li><strong>Description:</strong> <%= first_beer.description %></li><br />
+                        <li><strong>Sample Brands:</strong> <%= first_beer.sample_brands %></li>
+                    </div>
                 </ul>
+                
                 <div class="clear"></div>
             </div>
+            
+            <script>
+            $(function() {
+              $("#drink_this_beer_image").click(function(event) {
+                event.preventDefault();
+                $("#first_hidden_info").fadeToggle();
+              });
+
+            });
+            </script>
             
             <div class="clear"></div>
             
@@ -27,12 +41,14 @@
             
             <div class="also_like_box">
                 <ul class="results">
+                    <% i = 0 %>
                     <% @pairings.map(&:beer_style).uniq[1...@pairings.length].each do |beer_style| %>
-                    <div id="also_like_image">
+                    <% i += 1 %>
+                    <div class="also_like_image" id="image<%= i %>">
                         <%= image_tag("../images/belgian_beers/#{beer_style.image}.jpg", :size => "100x100")%>
                     </div>
                     
-                    <div id="hidden_info">
+                    <div class="hidden" id="hidden_info<%= i %>">
                         <ul class="results">
                             <li><strong>Description:</strong> <%= beer_style.description %></li><br />
                             <li><strong>Why does this pairing work? </strong></li>
@@ -46,13 +62,18 @@
                             <li><strong>Sample Brands:</strong> <%= beer_style.sample_brands %></li>
                         </ul>
                     </div>
+                    <script>
+                    $(function() {
+                      $("#image<%= i %>").click(function(event) {
+                        event.preventDefault();
+                        $("#hidden_info<%= i %>").fadeToggle();
+                      });
+
+                    });
+                    </script>
             <% end %>
             
             <div class="clear"></div>
- 
-            <div class="more_info">
-                <p>HELLO!</p>
-            </div>
     </div>
     <% end %>
 </div>

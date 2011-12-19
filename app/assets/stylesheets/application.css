@@ -41,7 +41,7 @@ ul.main li{
 
 ul.results li{
 	list-style: none;
-	margin-left: 0;
+	margin-left: -35px;
 	padding-left: 0;	
 }
 
@@ -74,7 +74,7 @@ ul.results li{
 	padding: 10px 0px 10px 0px;
 }
 
-#also_like_image {
+.also_like_image {
 	float: left;
 	margin: 5px;
 }
@@ -83,8 +83,10 @@ ul.results li{
 	
 }
 
-#hidden_info {
+.hidden {
 	display: none;
+	float: right;
+	margin: 10px 0px;
 }
 
 #orange_label {
