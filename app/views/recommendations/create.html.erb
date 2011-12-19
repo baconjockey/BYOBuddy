@@ -5,6 +5,7 @@
 
     <% @pairings.map(&:beer_style).uniq.each do |beer_style| %>
         <h2><%= beer_style.name %></h2>
+        <%= image_tag("../images/belgian_beers/#{beer_style.image}.jpg") %>
         <ul class="results">
             <!-- li><strong>Description:</strong> < image_tag(/images/belgian_pale_ale.png) %></li><br /> -->
             <li><strong>Description:</strong> <%= beer_style.description %></li><br />

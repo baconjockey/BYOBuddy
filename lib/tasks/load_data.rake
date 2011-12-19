@@ -16,7 +16,8 @@ namespace :data do
                         :aka               => row[1],
                         :country_of_origin => row[2],
                         :description       => row[3],
-                        :sample_brands     => row[4])
+                        :sample_brands     => row[4],
+                        :image             => row[5])
       rescue Exception => e
         failures << row
       end
